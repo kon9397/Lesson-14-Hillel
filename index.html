@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson 14 Hillel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .squares {
+            width: 70%;
+            margin: 0 auto;
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .square {
+            min-height: 200px;
+            width: 200px;
+            border: 1px solid #000000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        .square h3 {
+            font-size: 26px;
+        }
+
+        .square button {
+            padding: 5px 10px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .colorful-square {
+            width: 200px;
+            height: 150px;
+            border: 1px solid #000000;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="squares">
+        <div id="square-1" data-attr="#square-1" class="square">
+            <h3 class="value">0</h3>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">-</button>
+            </div>
+        </div>
+        <div id="square-2" data-attr="#square-2" class="square">
+            <h3 class="value">0</h3>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">-</button>
+            </div>
+        </div>
+        <div id="square-3" data-attr="#square-3" class="square">
+            <h3 class="value">0</h3>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">-</button>
+            </div>
+        </div>
+        <div id="square-4" data-attr="#square-4" class="square">
+            <h3 class="value">0</h3>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">-</button>
+            </div>
+        </div>
+        <div id="square-5" data-attr="#square-5" class="square">
+            <h3 class="value">0</h3>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">-</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="squares">
+        <div data-attr="colorful-1" class="colorful-square"></div>
+        <div data-attr="colorful-2" class="colorful-square"></div>
+        <div data-attr="colorful-3" class="colorful-square"></div>
+        <div data-attr="colorful-4" class="colorful-square"></div>
+        <div data-attr="colorful-5" class="colorful-square"></div>
+    </div>
+
+
+
+    <script>
+        let $squares = document.querySelectorAll('.square');
+
+        $squares.forEach($square => {
+            $square.addEventListener('click', function(e) {
+                let attr = this.dataset.attr;
+                let index = Number(document.querySelector(`${attr}.square .value`).textContent);
+
+                if(e.target.classList.contains('btn-minus')) {
+                    if(index <= 0) {
+                        index = 0;
+                    } else {
+                        document.querySelector(`${attr}.square .value`).textContent = --index;
+                    }
+                } else {
+                    document.querySelector(`${attr}.square .value`).textContent = ++index;
+                }             
+            })
+        });
+
+        let $colorfulSquares = document.querySelectorAll('.colorful-square');
+
+
+        $colorfulSquares.forEach($colorfulSquare => {
+            $colorfulSquare.addEventListener('click', function(e) {
+                
+            });
+            
+        })
+    </script>
+</body>
+</html>
