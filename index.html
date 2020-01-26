@@ -91,11 +91,11 @@
     </div>
 
     <div class="squares">
-        <div data-attr="#colorful-1" class="colorful-square"></div>
-        <div data-attr="#colorful-2" class="colorful-square"></div>
-        <div data-attr="#colorful-3" class="colorful-square"></div>
-        <div data-attr="#colorful-4" class="colorful-square"></div>
-        <div data-attr="#colorful-5" class="colorful-square"></div>
+        <div data-index="0" class="colorful-square"></div>
+        <div data-index="0" class="colorful-square"></div>
+        <div data-index="0" class="colorful-square"></div>
+        <div data-index="0" class="colorful-square"></div>
+        <div data-index="0" class="colorful-square"></div>
     </div>
 
 
@@ -125,9 +125,15 @@
 
         $colorfulSquares.forEach($colorfulSquare => {
             $colorfulSquare.addEventListener('click', function(e) {
-                let attr = this.dataset.attr;
-
-                console.log(attr);
+                let colors = ['blue', 'green', 'yellow'];
+                if(this.dataset.index <= colors.length-1) {
+                    this.style.backgroundColor = colors[this.dataset.index];
+                    this.dataset.index = Number(this.dataset.index)+1;
+                    this.parentNode.appendChild(this);
+                } else {
+                    this.dataset.index = '1';
+                    this.style.backgroundColor = colors[0];
+                }
             });
             
         })
