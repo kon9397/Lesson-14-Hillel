@@ -91,11 +91,11 @@
     </div>
 
     <div class="squares">
-        <div data-attr="colorful-1" class="colorful-square"></div>
-        <div data-attr="colorful-2" class="colorful-square"></div>
-        <div data-attr="colorful-3" class="colorful-square"></div>
-        <div data-attr="colorful-4" class="colorful-square"></div>
-        <div data-attr="colorful-5" class="colorful-square"></div>
+        <div data-attr="#colorful-1" class="colorful-square"></div>
+        <div data-attr="#colorful-2" class="colorful-square"></div>
+        <div data-attr="#colorful-3" class="colorful-square"></div>
+        <div data-attr="#colorful-4" class="colorful-square"></div>
+        <div data-attr="#colorful-5" class="colorful-square"></div>
     </div>
 
 
@@ -125,7 +125,9 @@
 
         $colorfulSquares.forEach($colorfulSquare => {
             $colorfulSquare.addEventListener('click', function(e) {
-                
+                let attr = this.dataset.attr;
+
+                console.log(attr);
             });
             
         })
